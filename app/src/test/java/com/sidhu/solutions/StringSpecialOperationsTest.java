@@ -1,20 +1,20 @@
 package com.sidhu.solutions;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-public class ZigzagConversionTest {
-    
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class StringSpecialOperationsTest {
+
     private Solution solution;
 
     @ParameterizedTest
-    @CsvSource({"PAYPALISHIRING, 3, PAHNAPLSIIGYIR", "PAYPALISHIRING, 4, PINALSIGYAHRPI"})
-    public void test(String s, int numRows, String expected) {
-        solution = new ZigzagConversion();
+    @CsvSource({"a#b%*, ba", "z*#, ''"})
+    public void test(String s, String expected) {
+        solution = new StringSpecialOperations();
         boolean result = solution.test(() -> {
-            String actual = ((ZigzagConversion) solution).convert(s, numRows);
+            String actual = ((StringSpecialOperations) solution).processStr(s);
             System.out.println("Input : " + s);
             System.out.println("Expected : " + expected);
             System.out.println("Actual : " + actual);
